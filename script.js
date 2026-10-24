@@ -4,17 +4,16 @@
 
 
 /*
-  LOGO GAME:
+  SIMPAN LOGO GAME DI:
 
-  Simpan logo terus dalam folder images/
+  images/
 
   Contoh:
-
   images/mega888.png
   images/pussy888.png
 
-  Jika gambar belum tersedia,
-  logo default 🎰 akan muncul.
+  Kalau logo belum ada,
+  website akan menggunakan 🎰.
 */
 
 
@@ -103,7 +102,6 @@ const games = [
 ];
 
 
-
 /* ELEMENTS */
 
 const gameGrid =
@@ -122,24 +120,17 @@ const modalOverlay =
   document.getElementById("modalOverlay");
 
 
-
-/* =====================================
-   CREATE GAME CARDS
-===================================== */
+/* CREATE GAME LIST */
 
 games.forEach(function(game) {
 
   const card =
     document.createElement("button");
 
-  card.type =
-    "button";
+  card.type = "button";
 
-  card.className =
-    "game-card";
+  card.className = "game-card";
 
-
-  /* IMAGE BOX */
 
   const imageBox =
     document.createElement("div");
@@ -147,8 +138,6 @@ games.forEach(function(game) {
   imageBox.className =
     "game-image";
 
-
-  /* IMAGE */
 
   const image =
     document.createElement("img");
@@ -163,9 +152,7 @@ games.forEach(function(game) {
     "lazy";
 
 
-  /*
-    FALLBACK LOGO
-  */
+  /* DEFAULT LOGO */
 
   image.onerror = function() {
 
@@ -187,8 +174,6 @@ games.forEach(function(game) {
   };
 
 
-  /* NAME */
-
   const gameName =
     document.createElement("span");
 
@@ -199,44 +184,29 @@ games.forEach(function(game) {
     game.name;
 
 
-  imageBox.appendChild(
-    image
-  );
+  imageBox.appendChild(image);
 
-  card.appendChild(
-    imageBox
-  );
+  card.appendChild(imageBox);
 
-  card.appendChild(
-    gameName
-  );
+  card.appendChild(gameName);
 
-
-  /* CLICK */
 
   card.addEventListener(
     "click",
     function() {
 
-      openModal(
-        game.name
-      );
+      openModal(game.name);
 
     }
   );
 
 
-  gameGrid.appendChild(
-    card
-  );
+  gameGrid.appendChild(card);
 
 });
 
 
-
-/* =====================================
-   OPEN MODAL
-===================================== */
+/* OPEN POPUP */
 
 function openModal(gameName) {
 
@@ -253,10 +223,7 @@ function openModal(gameName) {
 }
 
 
-
-/* =====================================
-   CLOSE MODAL
-===================================== */
+/* CLOSE POPUP */
 
 function closeModal() {
 
@@ -282,7 +249,7 @@ modalOverlay.addEventListener(
 );
 
 
-/* ESC */
+/* ESC CLOSE */
 
 document.addEventListener(
   "keydown",
@@ -301,19 +268,11 @@ document.addEventListener(
 );
 
 
-
-/* =====================================
-   SUBTLE PARTICLES
-===================================== */
+/* BACKGROUND PARTICLES */
 
 const particleContainer =
   document.getElementById("particles");
 
-
-/*
-  Lebih sedikit daripada versi sebelumnya
-  supaya background tidak terlalu ramai.
-*/
 
 const particleAmount = 12;
 
@@ -331,10 +290,9 @@ for (
     "particle";
 
 
-  /* POSITION */
-
   particle.style.left =
     Math.random() * 100 + "%";
+
 
   particle.style.top =
     (
@@ -343,11 +301,10 @@ for (
     ) + "%";
 
 
-  /* SIZE */
-
   const size =
     1 +
     Math.random() * 1.5;
+
 
   particle.style.width =
     size + "px";
@@ -356,13 +313,12 @@ for (
     size + "px";
 
 
-  /* SPEED */
-
   particle.style.animationDuration =
     (
       11 +
       Math.random() * 11
     ) + "s";
+
 
   particle.style.animationDelay =
     (
